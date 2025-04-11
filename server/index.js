@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+const protectedRoutes = require("./routes/protected");
+app.use("/api/protected", protectedRoutes);
+
 // Routes
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
@@ -31,3 +34,4 @@ pool.connect()
   .catch((err) => {
     console.error("❌ Failed to connect to PostgreSQL:", err);
   });
+

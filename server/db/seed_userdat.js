@@ -3,21 +3,20 @@ const pool = require("./pool");
 
 async function seedUser() {
   try {
-    const hashedPassword = await bcrypt.hash("supersecret123", 10);
+    const hashedPassword = await bcrypt.hash("bhakti", 10);
 
     const insertQuery = `
       INSERT INTO USERDAT (
         USERNAME, USERPWD, USEREMAIL, USERFULLNAME,
-        USERROLE, USERSTATUS, CREATED_AT, UPDATED_AT
-      ) VALUES ($1, $2, $3, $4, $5, $6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+        USERSTATUS, CREATED_AT, UPDATED_AT
+      ) VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     `;
 
     const values = [
-      "SUPER.CHIZZU",
+      "bhakti",
       hashedPassword,
-      "super@chizzu.com",
-      "Super Chizzu",
-      1,
+      "bhakti@chizzu.com",
+      "Bhakti Ganteng",
       "ACT"
     ];
 
